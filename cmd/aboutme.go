@@ -21,7 +21,7 @@ var aboutmeCmd = &cobra.Command{
 		cmd.Printf("ID: %s\n", user.User.ID)
 		cmd.Printf("TAG: %s\n", user.User.Tag)
 		cmd.Printf("Plan Name: %s\n", user.User.Plan.Name)
-		cmd.Printf("Plan Duration: %s\n", user.User.Plan.Duration)
+		cmd.Printf("Plan Duration: %s\n", user.User.Plan.Duration.Formatted)
 		cmd.Printf("Memory Total: %d\n", user.User.Plan.Memory.Limit)
 		cmd.Printf("Memory Available: %d\n", user.User.Plan.Memory.Available)
 		cmd.Printf("Memory Used: %d\n", user.User.Plan.Memory.Used)
