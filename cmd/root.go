@@ -3,13 +3,14 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"squarecloud/internal/build"
 
 	"github.com/spf13/cobra"
 )
 
 var rootCmd = &cobra.Command{
 	Use:     "squarecloud",
-	Version: "1.0.0",
+	Version: build.Version,
 	Long:    "squarego is Square Cloud on the command line. Which allows you to manage all your applications from the command line!",
 	Run: func(cmd *cobra.Command, args []string) {
 		cmd.Help()
