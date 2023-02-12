@@ -31,7 +31,7 @@ func DataDir() string {
 	var path string
 
 	if a := os.Getenv("LocalAppData"); runtime.GOOS == "windows" && a != "" {
-		path = filepath.Join(a, "SquareCloud CLI")
+		path = filepath.Join(a, "Square Cloud CLI")
 	}
 
 	return path
