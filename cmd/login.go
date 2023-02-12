@@ -18,7 +18,7 @@ var loginCmd = &cobra.Command{
 		question := []*survey.Question{
 			{
 				Name: "token",
-				Prompt: &survey.Input{
+				Prompt: &survey.Password{
 					Message: "Insert your API/CLI token:",
 				},
 				Validate: func(val interface{}) error {
