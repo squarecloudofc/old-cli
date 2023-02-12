@@ -22,5 +22,5 @@ iwr -useb https://raw.githubusercontent.com/richaardev/squarecloud-cli/master/sc
 npm i -g squarecloud
 ```
 
-# Contributing
+## Contributing
 We are currently accepting all kinds of suggestions and contributions. All you have to do is open an Issue or a Pull Request!
