@@ -17,18 +17,18 @@ archives:
   - format: tar.gz
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     format_overrides:
-    - goos: windows
-      format: zip
-  
+      - goos: windows
+        format: zip
+
 checksum:
-  name_template: 'checksums.txt'
+  name_template: "checksums.txt"
 
 changelog:
   sort: asc
   filters:
     exclude:
-      - '^docs:'
-      - '^test:'
+      - "^docs:"
+      - "^test:"
 
 nfpms:
   - builds:
@@ -40,3 +40,12 @@ nfpms:
       - deb
       - rpm
     bindir: /usr/bin
+
+brews:
+  - homepage: "https://github.com/richaardev/"
+    description: "Square Cloud CLI Aplication"
+    folder: Formula
+    license: MIT
+    tap:
+      owner: richaardev
+      name: homebrew-squarecloud
