@@ -4,6 +4,7 @@ Square Cloud CLI is a command line application that provides a variety of comman
 ## Table of Contents
 - [Installation](#installation)
   - [Windows (PowerShell)](#windows-powershell)
+  - [Ubuntu/Debian](#ubuntudebian)
   - [NodeJS](#nodejs)
 
 ## Installation
@@ -14,6 +15,12 @@ If you don't want to use any of the methods below, download a release and add it
 `Square Cloud CLI` can be installed using our [Powershell Script](https://github.com/richaardev/squarecloud-cli/master/scripts/windows_install.ps1)
 ```shell
 iwr -useb https://raw.githubusercontent.com/richaardev/squarecloud-cli/master/scripts/windows_install.ps1 | iex
+```
+### Ubuntu/Debian
+```shell
+VERSION=$(wget -q "https://api.github.com/repos/richaardev/squarecloud-cli/releases/latest" -O - | grep -Po '"tag_name": "v\K[^"]*')
+wget https://github.com/richaardev/squarecloud-cli/releases/download/v${VERSION}/squarecloud_${VERSION}_linux_amd64.deb
+sudo apt install ./squarecloud_${VERSION}_linux_amd64.deb
 ```
 
 ### NodeJS
