@@ -30,8 +30,16 @@ func fileExists(file string) bool {
 func DataDir() string {
 	var path string
 
-	if a := os.Getenv("LocalAppData"); runtime.GOOS == "windows" && a != "" {
+	if a := os.Getenv("AppData"); runtime.GOOS == "windows" && a != "" {
 		path = filepath.Join(a, "Square Cloud CLI")
+	} else if b := os.Getenv("XDG_CONFIG_HOME"); b != "" {
+		path = filepath.Join(b, "squarecloud")
+	} else {
+		dir, err := os.UserHomeDir()
+		if err != nil {
+			panic("cannot get a valid dir for square cloud config")
+		}
+		path = filepath.Join(dir, ".config", "squarecloud")
 	}
 
 	return path
