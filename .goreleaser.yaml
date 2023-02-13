@@ -29,3 +29,14 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
+
+nfpms:
+  - builds:
+      - squarecloud
+    vendor: richaardev
+    maintainer: "richaardev <me@richaar.dev>"
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/bin
