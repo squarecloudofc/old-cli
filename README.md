@@ -15,7 +15,7 @@ If you don't want to use any of the methods below, download a release and add it
 ### Windows (PowerShell)
 `Square Cloud CLI` can be installed using our [Powershell Script](https://github.com/richaardev/squarecloud-cli/master/windows_install.ps1)
 ```shell
-iwr -useb https://raw.githubusercontent.com/richaardev/squarecloud-cli/master/scripts/windows_install.ps1 | iex
+iwr -useb https://raw.githubusercontent.com/richaardev/squarecloud-cli/master/windows_install.ps1 | iex
 ```
 ### Ubuntu/Debian
 ```shell
