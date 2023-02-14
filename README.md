@@ -13,7 +13,7 @@ Below are listed some installation methods for Windows, Linux and MacOS.
 If you don't want to use any of the methods below, download a release and add it to `PATH` manually.
 
 ### Windows (PowerShell)
-`Square Cloud CLI` can be installed using our [Powershell Script](https://github.com/richaardev/squarecloud-cli/master/scripts/windows_install.ps1)
+`Square Cloud CLI` can be installed using our [Powershell Script](https://github.com/richaardev/squarecloud-cli/master/windows_install.ps1)
 ```shell
 iwr -useb https://raw.githubusercontent.com/richaardev/squarecloud-cli/master/scripts/windows_install.ps1 | iex
 ```
