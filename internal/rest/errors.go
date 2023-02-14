@@ -6,7 +6,7 @@ type SquareError string
 
 const (
 	AppNotFound   SquareError = "Application not found, verify your application ID and try again"
-	AccessDenied  SquareError = "Your access is denied, make login with your api token using \"square login\" or verify if you have access for this action"
+	AccessDenied  SquareError = "Your access is denied, make login with your api token using \"squarecloud login\" or verify if you have access for this action"
 	UserNotFound  SquareError = "User not found, verify your user ID and try again"
 	InvalidBuffer SquareError = "Unable to send buffer."
 	InvalidFile   SquareError = "Unable to send the file"
