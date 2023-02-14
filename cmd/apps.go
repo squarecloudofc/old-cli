@@ -5,6 +5,7 @@ import (
 	"os"
 	"squarecloud/internal/rest"
 	"strconv"
+	"strings"
 	"text/tabwriter"
 
 	"github.com/spf13/cobra"
@@ -24,19 +25,23 @@ var applistCmd = &cobra.Command{
 			return
 		}
 
-		w := tabwriter.NewWriter(os.Stdout, 0, 0, 0, ' ', tabwriter.TabIndent)
-		fmt.Fprintln(w, "Application ID", "\t", "RAM", "\t", "CLUSTER", "\t", "LANG", "\t", "TYPE", "\t", "IS WEBSITE?", "\t")
+		w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', tabwriter.TabIndent)
 		defer w.Flush()
 
+		tags := []string{"TAG", "App ID", "MEMORY", "CLUSTER", "LANG", "TYPE", "WEBSITE"}
+		fmt.Fprintln(w, strings.Join(tags, " \t "))
+
 		for _, app := range user.Applications {
-			fmt.Fprintln(w,
-				app.ID[:12], "\t",
-				strconv.Itoa(app.RAM)+"mb", "\t",
-				app.Cluster, "\t",
-				app.Lang, "\t",
-				app.Type, "\t",
-				app.IsWesite, "\t",
-			)
+			values := []string{
+				app.Tag,
+				app.ID[:12],
+				strconv.Itoa(app.RAM) + "mb",
+				app.Cluster,
+				app.Lang,
+				app.Type,
+				strconv.FormatBool(app.IsWesite),
+			}
+			fmt.Fprintln(w, strings.Join(values, " \t "))
 		}
 	},
 }
