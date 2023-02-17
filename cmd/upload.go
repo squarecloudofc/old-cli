@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"os"
-	"squarecloud/internal/rest"
+	"squarecloud/internal/api"
 	"squarecloud/internal/util"
 
 	"github.com/spf13/cobra"
@@ -31,7 +31,7 @@ var uploadCmd = &cobra.Command{
 			return
 		}
 
-		success, err := rest.ApplicationUpload(file)
+		success, err := api.ApplicationUpload(file)
 		if !success && err != nil {
 			cmd.PrintErrln(err)
 			return

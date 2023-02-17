@@ -6,7 +6,7 @@ import (
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/spf13/cobra"
 	"os"
-	"squarecloud/internal/rest"
+	"squarecloud/internal/api"
 	"strconv"
 )
 
@@ -14,7 +14,7 @@ var createAppCmd = &cobra.Command{
 	Use:   "init",
 	Short: "initialize squarecloud config",
 	Run: func(cmd *cobra.Command, args []string) {
-		resp, err := rest.GetSelfUser()
+		resp, err := api.GetSelfUser()
 		if err != nil {
 			cmd.PrintErrln(err)
 			return

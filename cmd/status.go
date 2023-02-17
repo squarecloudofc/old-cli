@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"squarecloud/internal/rest"
+	"squarecloud/internal/api"
 	"text/tabwriter"
 
 	"github.com/spf13/cobra"
@@ -13,7 +13,7 @@ var statusCmd = &cobra.Command{
 	Short: "Get your application status",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		app, err := rest.ApplicationStatus(args[0])
+		app, err := api.ApplicationStatus(args[0])
 		if err != nil {
 			cmd.PrintErrln()
 			return

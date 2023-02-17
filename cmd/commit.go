@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"os"
-	"squarecloud/internal/rest"
+	"squarecloud/internal/api"
 	"squarecloud/internal/util"
 
 	"github.com/spf13/cobra"
@@ -30,7 +30,7 @@ var commitCmd = &cobra.Command{
 			return
 		}
 
-		commit, err := rest.ApplicationCommit(args[0], file)
+		commit, err := api.ApplicationCommit(args[0], file)
 		if !commit && err != nil {
 			cmd.PrintErrln(err)
 			return

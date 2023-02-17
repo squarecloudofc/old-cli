@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"squarecloud/internal/rest"
+	"squarecloud/internal/api"
 
 	"github.com/spf13/cobra"
 )
@@ -11,7 +11,7 @@ var backupCmd = &cobra.Command{
 	Short: "Make a backup of your application",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		backup, err := rest.ApplicationBackup(args[0])
+		backup, err := api.ApplicationBackup(args[0])
 		if err != nil {
 			cmd.PrintErrln(err)
 			return

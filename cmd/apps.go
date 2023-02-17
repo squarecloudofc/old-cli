@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"squarecloud/internal/rest"
+	"squarecloud/internal/api"
 	"strconv"
 	"strings"
 	"text/tabwriter"
@@ -15,7 +15,7 @@ var applistCmd = &cobra.Command{
 	Use:   "apps",
 	Short: "See all your active apps on Square Cloud",
 	Run: func(cmd *cobra.Command, args []string) {
-		user, err := rest.GetSelfUser()
+		user, err := api.GetSelfUser()
 		if err != nil {
 			cmd.PrintErrln(err.Error())
 			return

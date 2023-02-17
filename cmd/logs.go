@@ -3,7 +3,7 @@ package cmd
 import (
 	"os/exec"
 	"runtime"
-	"squarecloud/internal/rest"
+	"squarecloud/internal/api"
 
 	"github.com/spf13/cobra"
 )
@@ -16,7 +16,7 @@ var logsCmd = &cobra.Command{
 		full, _ := cmd.Flags().GetBool("full")
 		noopen, _ := cmd.Flags().GetBool("no-open")
 		// Todo: handle error
-		logs, err := rest.ApplicationLogs(args[0], full)
+		logs, err := api.ApplicationLogs(args[0], full)
 		if err != nil {
 			cmd.PrintErrln(err)
 			return

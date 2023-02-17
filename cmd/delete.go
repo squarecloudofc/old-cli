@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"squarecloud/internal/rest"
+	"squarecloud/internal/api"
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/spf13/cobra"
@@ -18,7 +18,7 @@ var deleteCmd = &cobra.Command{
 		}, &confirm)
 
 		if confirm {
-			resp, err := rest.ApplicationDelete(args[0])
+			resp, err := api.ApplicationDelete(args[0])
 			if !resp && err != nil {
 				cmd.PrintErrln(err)
 				return

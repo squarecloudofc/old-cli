@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"squarecloud/internal/rest"
+	"squarecloud/internal/api"
 
 	"github.com/spf13/cobra"
 )
@@ -12,7 +12,7 @@ var aboutmeCmd = &cobra.Command{
 	Long:  ``,
 
 	Run: func(cmd *cobra.Command, args []string) {
-		user, err := rest.GetSelfUser()
+		user, err := api.GetSelfUser()
 		if err != nil {
 			cmd.PrintErrln(err)
 			return
