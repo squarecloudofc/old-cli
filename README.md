@@ -26,7 +26,8 @@ sudo apt install ./squarecloud_${VERSION}_linux_amd64.deb
 
 ### MacOS (Homebrew)
 ```shell
-brew install richaardev/squarecloud/squarecloud
+brew tap richaardev/squarecloud
+brew install squarecloud
 ```
 
 ### NodeJS
