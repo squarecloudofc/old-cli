@@ -1,0 +1,28 @@
+name: squarecloud
+summary: Square Cloud command line tool.
+description: Square Cloud Cli is a fast and light command line tool to manage your Square Cloud applications
+adopt-info: squarecloud
+grade: stable
+confinement: strict
+base: core20
+license: MIT
+
+apps:
+  squarecloud:
+    command: squarecloud
+    plugs: [home, network]
+
+parts:
+  squarecloud:
+    plugin: make
+    source: .
+    source-type: git
+    build-snaps: [go]
+    build-packages: [git]
+    stage-packages: [git]
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version `git describe --tags | sed 's/^v//'`
+    override-build: |
+      make -j2
+      cp bin/squarecloud $SNAPCRAFT_PART_INSTALL/
