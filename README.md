@@ -4,6 +4,7 @@ Square Cloud CLI is a command line application that provides a variety of comman
 ## Table of Contents
 - [Installation](#installation)
   - [Windows (PowerShell)](#windows-powershell)
+  - [Linux (Snap)](#linux-snap)
   - [Ubuntu/Debian](#ubuntudebian)
   - [MacOS (Homebrew)](#macos-homebrew)
   - [NodeJS](#nodejs)
@@ -17,6 +18,11 @@ If you don't want to use any of the methods below, download a release and add it
 ```shell
 iwr -useb https://raw.githubusercontent.com/richaardev/squarecloud-cli/master/windows_install.ps1 | iex
 ```
+### Linux (Snap)
+```shell
+sudo snap install squarecloud
+```
+
 ### Ubuntu/Debian
 ```shell
 VERSION=$(wget -q "https://api.github.com/repos/richaardev/squarecloud-cli/releases/latest" -O - | grep -Po '"tag_name": "v\K[^"]*')
