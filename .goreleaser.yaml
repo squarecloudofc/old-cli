@@ -4,7 +4,8 @@ release:
   name_template: "Square Cloud CLI {{ .Version }}"
 
 builds:
-  - env:
+  - main: ./cmd/squarecloud
+    env:
       - CGO_ENABLED=0
     goos:
       - linux
