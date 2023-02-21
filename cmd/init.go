@@ -7,6 +7,8 @@ import (
 	"github.com/spf13/cobra"
 	"os"
 	"squarecloud/internal/api"
+	"squarecloud/internal/appconfig"
+	"squarecloud/pkg/properties"
 	"strconv"
 )
 
@@ -87,9 +89,22 @@ var createAppCmd = &cobra.Command{
 			cmd.PrintErrln(err)
 			return
 		}
-		toWrite := fmt.Sprintf("DISPLAY_NAME=%s\nDESCRIPTION=%s\nMAIN=%s\nMEMORY=%s\nVERSION=%s", answers.AppName, answers.Description, answers.MainFile, answers.Memory, answers.Version)
 
-		_, err = file.Write([]byte(toWrite))
+		config := appconfig.AppConfig{
+			DisplayName: answers.AppName,
+			Description: answers.Description,
+			Main:        answers.MainFile,
+			Memory:      answers.Memory,
+			Version:     answers.Version,
+		}
+
+		toWrite, err := properties.Marshal(config)
+		if err != nil {
+			cmd.PrintErrln(err)
+			return
+		}
+
+		_, err = file.Write(toWrite)
 		if err != nil {
 			cmd.PrintErrln(err)
 			return
