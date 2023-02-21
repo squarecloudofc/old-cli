@@ -6,22 +6,20 @@ import (
 )
 
 func TestUnmarshall(t *testing.T) {
-	t.Run("Should unmarshal a byte array", func(t *testing.T) {
-		type T struct {
-			ST string `properties:"ST"`
-			St string `properties:"St"`
-		}
-		text := `
+	type T struct {
+		ST string `properties:"ST"`
+		St string `properties:"St"`
+	}
+	text := `
 ST=asd
 St=dsa
 `
 
-		var r T
-		err := Unmarshall([]byte(text), &r)
-		assert.Equal(t, err, nil)
-		assert.Equal(t, r, T{
-			ST: "asd",
-			St: "dsa",
-		})
+	var r T
+	err := Unmarshall([]byte(text), &r)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, r, T{
+		ST: "asd",
+		St: "dsa",
 	})
 }
