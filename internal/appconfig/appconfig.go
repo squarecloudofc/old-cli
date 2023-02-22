@@ -16,20 +16,6 @@ type AppConfig struct {
 	Start       string `properties:"START"`
 }
 
-func Validate(cfg *AppConfig) (bool, []error) {
-	errs := []error{}
-	// lets verify if main file is valid
-	if _, err := os.Lstat(cfg.Main); err != nil {
-		errs = append(errs, errors.New("main file not found"))
-	}
-
-	if len(errs) > 0 {
-		return false, errs
-	} else {
-		return true, nil
-	}
-}
-
 func Get() (*AppConfig, error) {
 	data, err := getFile()
 	if err != nil {
