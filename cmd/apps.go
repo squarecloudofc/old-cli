@@ -34,7 +34,7 @@ var applistCmd = &cobra.Command{
 		for _, app := range user.Applications {
 			values := []string{
 				app.Tag,
-				app.ID[:12],
+				app.ID,
 				strconv.Itoa(app.RAM) + "mb",
 				app.Cluster,
 				app.Lang,

@@ -23,7 +23,7 @@ var statusCmd = &cobra.Command{
 		defer w.Flush()
 
 		fmt.Fprintln(w, "Application ID", "\t", "STATUS", "\t", "CPU", "\t", "RAM", "\t", "STORAGE", "\t", "NETWORK")
-		fmt.Fprintln(w, args[0][:12], "\t", app.Status, "\t", app.CPU, "\t", app.RAM, "\t", app.Storage, "\t", app.Network.Total)
+		fmt.Fprintln(w, args[0], "\t", app.Status, "\t", app.CPU, "\t", app.RAM, "\t", app.Storage, "\t", app.Network.Total)
 	},
 }
 
