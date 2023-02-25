@@ -13,16 +13,16 @@ import (
 
 var UserAgent = "SquareGo (Square Cloud CLI)"
 
-type ApiResponse struct {
+type ApiResponse[T any] struct {
 	RawResponse *http.Response
 
-	Status   string      `json:"status"`
-	Code     string      `json:"code"`
-	Message  string      `json:"message"`
-	Response interface{} `json:"response"`
+	Status   string `json:"status"`
+	Code     string `json:"code"`
+	Message  string `json:"message"`
+	Response T      `json:"response"`
 }
 
-func request(method, path string, body io.Reader) (*ApiResponse, error) {
+func request[T any](method, path string, body io.Reader) (*ApiResponse[T], error) {
 	config, _ := config.GetConfig()
 	req, err := http.NewRequest(method, APIURL+path, body)
 	if err != nil {
@@ -37,7 +37,7 @@ func request(method, path string, body io.Reader) (*ApiResponse, error) {
 		return nil, err
 	}
 
-	decoded, err := decodeResponse(response)
+	decoded, err := decodeResponse[T](response)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +84,7 @@ func sendFile(path string, filep string) (response *http.Response, err error) {
 	return
 }
 
-func decodeResponse(response *http.Response) (apiResponse *ApiResponse, err error) {
+func decodeResponse[T any](response *http.Response) (apiResponse *ApiResponse[T], err error) {
 	decoder := json.NewDecoder(response.Body)
 	if err = decoder.Decode(&apiResponse); err != nil {
 		return

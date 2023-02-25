@@ -14,7 +14,7 @@ const (
 	DelayNow      SquareError = "You are in rate limit, try again later"
 )
 
-func ParseError(e *ApiResponse) (err string) {
+func ParseError[T any](e *ApiResponse[T]) (err string) {
 	switch e.Code {
 	case "APP_NOT_FOUND":
 		err = string(AppNotFound)

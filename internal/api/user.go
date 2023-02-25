@@ -3,8 +3,6 @@ package api
 import (
 	"errors"
 	"net/http"
-
-	"github.com/mitchellh/mapstructure"
 )
 
 type ResponseUser struct {
@@ -42,7 +40,7 @@ func GetUser(id string) (*ResponseUser, error) {
 		path = EndpointUserInfo(id)
 	}
 
-	res, err := request(http.MethodGet, path, nil)
+	res, err := request[ResponseUser](http.MethodGet, path, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -51,11 +49,5 @@ func GetUser(id string) (*ResponseUser, error) {
 		return nil, errors.New(ParseError(res))
 	}
 
-	var user *ResponseUser
-	err = mapstructure.Decode(res.Response, &user)
-	if err != nil {
-		return nil, err
-	}
-
-	return user, nil
+	return &res.Response, nil
 }

@@ -2,7 +2,6 @@ package api
 
 import (
 	"errors"
-	"github.com/mitchellh/mapstructure"
 	"net/http"
 	"os"
 )
@@ -42,7 +41,7 @@ type ResponseApplicationLogs struct {
 }
 
 func ApplicationStatus(appId string) (*ResponseApplicationStatus, error) {
-	res, err := request(http.MethodGet, EndpointApplicationStatus(appId), nil)
+	res, err := request[ResponseApplicationStatus](http.MethodGet, EndpointApplicationStatus(appId), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -50,14 +49,11 @@ func ApplicationStatus(appId string) (*ResponseApplicationStatus, error) {
 		return nil, errors.New(ParseError(res))
 	}
 
-	var applicationStatus *ResponseApplicationStatus
-	mapstructure.Decode(res.Response, &applicationStatus)
-
-	return applicationStatus, nil
+	return &res.Response, nil
 }
 
 func ApplicationBackup(appId string) (*ResponseApplicationBackup, error) {
-	res, err := request(http.MethodGet, EndpointApplicationBackup(appId), nil)
+	res, err := request[ResponseApplicationBackup](http.MethodGet, EndpointApplicationBackup(appId), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -65,14 +61,11 @@ func ApplicationBackup(appId string) (*ResponseApplicationBackup, error) {
 		return nil, errors.New(ParseError(res))
 	}
 
-	var applicationBackup *ResponseApplicationBackup
-	mapstructure.Decode(res.Response, &applicationBackup)
-
-	return applicationBackup, nil
+	return &res.Response, nil
 }
 
 func ApplicationLogs(appId string, full bool) (*ResponseApplicationLogs, error) {
-	res, err := request(http.MethodGet, EndpointApplicationLogs(appId, full), nil)
+	res, err := request[ResponseApplicationLogs](http.MethodGet, EndpointApplicationLogs(appId, full), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -80,14 +73,11 @@ func ApplicationLogs(appId string, full bool) (*ResponseApplicationLogs, error) 
 		return nil, errors.New(ParseError(res))
 	}
 
-	var applicationLogs *ResponseApplicationLogs
-	mapstructure.Decode(res.Response, &applicationLogs)
-
-	return applicationLogs, nil
+	return &res.Response, nil
 }
 
 func ApplicationStart(appId string) (bool, error) {
-	res, err := request(http.MethodPost, EndpointApplicationStart(appId), nil)
+	res, err := request[any](http.MethodPost, EndpointApplicationStart(appId), nil)
 	if err != nil {
 		return false, err
 	}
@@ -99,7 +89,7 @@ func ApplicationStart(appId string) (bool, error) {
 }
 
 func ApplicationStop(appId string) (bool, error) {
-	res, err := request(http.MethodPost, EndpointApplicationStop(appId), nil)
+	res, err := request[any](http.MethodPost, EndpointApplicationStop(appId), nil)
 	if err != nil {
 		return false, err
 	}
@@ -111,7 +101,7 @@ func ApplicationStop(appId string) (bool, error) {
 }
 
 func ApplicationRestart(appId string) (bool, error) {
-	res, err := request(http.MethodPost, EndpointApplicationRestart(appId), nil)
+	res, err := request[any](http.MethodPost, EndpointApplicationRestart(appId), nil)
 	if err != nil {
 		return false, err
 	}
@@ -127,7 +117,7 @@ func ApplicationUpload(file *os.File) (bool, error) {
 	if err != nil {
 		return false, err
 	}
-	t, _ := decodeResponse(res)
+	t, _ := decodeResponse[any](res)
 	if res.StatusCode != 200 {
 		return false, errors.New(ParseError(t))
 	}
@@ -140,7 +130,7 @@ func ApplicationCommit(appId string, file *os.File) (bool, error) {
 	if err != nil {
 		return false, err
 	}
-	t, _ := decodeResponse(res)
+	t, _ := decodeResponse[any](res)
 	if res.StatusCode != 200 {
 		return false, errors.New(ParseError(t))
 	}
@@ -149,7 +139,7 @@ func ApplicationCommit(appId string, file *os.File) (bool, error) {
 }
 
 func ApplicationDelete(appId string) (bool, error) {
-	res, err := request(http.MethodPost, EndpointApplicationDelete(appId), nil)
+	res, err := request[any](http.MethodPost, EndpointApplicationDelete(appId), nil)
 	if err != nil {
 		return false, err
 	}
