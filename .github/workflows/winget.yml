@@ -1,0 +1,15 @@
+name: Publish to Winget
+on:
+  release:
+    types: [released]
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: vedantmgoyal2009/winget-releaser@v2
+        with:
+          identifier: SquareCloud.CLI
+          version: ${{ github.event.release.tag_name }}
+          installers-regex: '_windows_(arm64|amd64)\.zip$'
+          token: ${{ secrets.WINGET_TOKEN }}
