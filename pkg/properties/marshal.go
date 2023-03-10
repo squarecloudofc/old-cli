@@ -7,8 +7,8 @@ import (
 
 func Marshal(v interface{}) ([]byte, error) {
 	var result = []byte{}
-	rv := reflect.ValueOf(v)
-
+	rv := reflect.Indirect(reflect.ValueOf(v))
+	
 	for i := 0; i < rv.NumField(); i++ {
 		to_add := ""
 		ty := rv.Type().Field(i)
