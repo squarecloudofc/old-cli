@@ -62,7 +62,7 @@ var createAppCmd = &cobra.Command{
 					}
 
 					if num > resp.User.Plan.Memory.Available {
-						return errors.New(fmt.Sprintf("%dmb exceeds the limit you have available", num))
+						return fmt.Errorf("%dmb exceeds the limit you have available", num)
 					}
 
 					return nil
@@ -97,7 +97,7 @@ var createAppCmd = &cobra.Command{
 			Memory:      answers.Memory,
 			Version:     answers.Version,
 		}
-
+ 
 		toWrite, err := properties.Marshal(config)
 		if err != nil {
 			cmd.PrintErrln(err)
