@@ -10,7 +10,7 @@ import (
 
 var statusCmd = &cobra.Command{
 	Use:   "status [appid]",
-	Short: "Get your application status",
+	Short: "get your application status",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		app, err := api.ApplicationStatus(args[0])

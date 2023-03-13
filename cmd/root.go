@@ -11,7 +11,7 @@ import (
 var rootCmd = &cobra.Command{
 	Use:     "squarecloud",
 	Version: build.Version,
-	Long:    "squarego is Square Cloud on the command line. Which allows you to manage all your applications from the command line!",
+	Long:    "Square Cloud CLI is a powerful tool that allows you to easily manage your applications hosted on Square Cloud, saving time and streamlining the process.",
 	Run: func(cmd *cobra.Command, args []string) {
 		cmd.Help()
 	},

@@ -13,7 +13,7 @@ import (
 
 var applistCmd = &cobra.Command{
 	Use:   "apps",
-	Short: "See all your active apps on Square Cloud",
+	Short: "get all your hosted application in Square Cloud",
 	Run: func(cmd *cobra.Command, args []string) {
 		user, err := api.GetSelfUser()
 		if err != nil {

@@ -8,7 +8,7 @@ import (
 
 var backupCmd = &cobra.Command{
 	Use:   "backup [appid]",
-	Short: "Make a backup of your application",
+	Short: "backup your application",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		backup, err := api.ApplicationBackup(args[0])

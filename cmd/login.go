@@ -11,7 +11,7 @@ import (
 
 var loginCmd = &cobra.Command{
 	Use:   "login",
-	Short: "Log in for full SquareCloud CLI access",
+	Short: "sign in to get full SquareCloud CLI access",
 	Long:  "",
 	Run: func(cmd *cobra.Command, args []string) {
 		token := ""

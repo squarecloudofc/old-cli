@@ -8,7 +8,7 @@ import (
 
 var startCmd = &cobra.Command{
 	Use:   "start [appid]",
-	Short: "Start running your application",
+	Short: "start your application",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		success, err := api.ApplicationStart(args[0])

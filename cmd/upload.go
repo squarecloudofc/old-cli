@@ -11,7 +11,7 @@ import (
 var uploadCmd = &cobra.Command{
 	Use:     "upload",
 	Aliases: []string{"up"},
-	Short:   "Upload a new app to SquareCloud",
+	Short:   "upload your new application to Square Cloud",
 	Run: func(cmd *cobra.Command, args []string) {
 
 		workDir, _ := os.Getwd()

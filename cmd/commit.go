@@ -13,7 +13,7 @@ import (
 
 var commitCmd = &cobra.Command{
 	Use:   "commit [appid]",
-	Short: "Update your application",
+	Short: "commit a new version of your application",
 	Run: func(cmd *cobra.Command, args []string) {
 		appId := getApplicationId(cmd, args)
 		if appId == "" {

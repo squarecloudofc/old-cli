@@ -9,7 +9,7 @@ import (
 
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "print cli version",
+	Short: "get the cli version",
 	Run: func(cmd *cobra.Command, args []string) {
 		version := build.Version
 

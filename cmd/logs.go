@@ -10,7 +10,7 @@ import (
 
 var logsCmd = &cobra.Command{
 	Use:   "logs [appid]",
-	Short: "See the most recent logs of your application",
+	Short: "get your application logs",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		full, _ := cmd.Flags().GetBool("full")

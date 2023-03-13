@@ -8,7 +8,7 @@ import (
 
 var aboutmeCmd = &cobra.Command{
 	Use:   "aboutme",
-	Short: "View your Square Cloud user information",
+	Short: "get your Square Cloud user information",
 	Long:  ``,
 
 	Run: func(cmd *cobra.Command, args []string) {

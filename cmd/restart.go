@@ -8,7 +8,7 @@ import (
 
 var restartCmd = &cobra.Command{
 	Use:   "restart [appid]",
-	Short: "Restart your application",
+	Short: "restart your application",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		success, err := api.ApplicationRestart(args[0])

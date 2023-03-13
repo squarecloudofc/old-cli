@@ -10,7 +10,7 @@ import (
 
 var checkCmd = &cobra.Command{
 	Use:   "check",
-	Short: "Check your configuration file",
+	Short: "check and validate your squarecloud.config",
 	Run: func(cmd *cobra.Command, args []string) {
 		// will get the file based on cwd dir
 		isValid, errs := appconfig.ValidateFile()

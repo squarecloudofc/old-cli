@@ -8,7 +8,7 @@ import (
 
 var stopCmd = &cobra.Command{
 	Use:   "stop [appid]",
-	Short: "Stop running your application",
+	Short: "stop your application",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		success, err := api.ApplicationStop(args[0])
