@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"squarecloud/internal/api"
+	"github.com/richaardev/squarecloud-cli/internal/api"
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/spf13/cobra"

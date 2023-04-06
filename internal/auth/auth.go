@@ -1,6 +1,6 @@
 package auth
 
-import "squarecloud/internal/config"
+import "github.com/richaardev/squarecloud-cli/internal/config"
 
 func IsAuthenticated() bool {
 	config, err := config.GetConfig()

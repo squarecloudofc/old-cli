@@ -8,7 +8,8 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"squarecloud/internal/config"
+
+	"github.com/richaardev/squarecloud-cli/internal/config"
 )
 
 var UserAgent = "SquareGo (Square Cloud CLI)"

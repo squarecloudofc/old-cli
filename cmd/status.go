@@ -2,8 +2,9 @@ package cmd
 
 import (
 	"fmt"
-	"squarecloud/internal/api"
 	"text/tabwriter"
+
+	"github.com/richaardev/squarecloud-cli/internal/api"
 
 	"github.com/spf13/cobra"
 )

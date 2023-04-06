@@ -3,13 +3,14 @@ package cmd
 import (
 	"errors"
 	"fmt"
-	"github.com/AlecAivazis/survey/v2"
-	"github.com/spf13/cobra"
 	"os"
-	"squarecloud/internal/api"
-	"squarecloud/internal/appconfig"
-	"squarecloud/pkg/properties"
 	"strconv"
+
+	"github.com/AlecAivazis/survey/v2"
+	"github.com/richaardev/squarecloud-cli/internal/api"
+	"github.com/richaardev/squarecloud-cli/internal/appconfig"
+	"github.com/richaardev/squarecloud-cli/pkg/properties"
+	"github.com/spf13/cobra"
 )
 
 var createAppCmd = &cobra.Command{
@@ -97,7 +98,7 @@ var createAppCmd = &cobra.Command{
 			Memory:      answers.Memory,
 			Version:     answers.Version,
 		}
- 
+
 		toWrite, err := properties.Marshal(config)
 		if err != nil {
 			cmd.PrintErrln(err)

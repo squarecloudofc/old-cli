@@ -1,8 +1,8 @@
 package main
 
 import (
-	"squarecloud/cmd"
-	_ "squarecloud/internal/config"
+	"github.com/richaardev/squarecloud-cli/cmd"
+	_ "github.com/richaardev/squarecloud-cli/internal/config"
 )
 
 func main() {

@@ -3,7 +3,8 @@ package appconfig
 import (
 	"errors"
 	"os"
-	"squarecloud/pkg/properties"
+
+	"github.com/richaardev/squarecloud-cli/pkg/properties"
 )
 
 type AppConfig struct {

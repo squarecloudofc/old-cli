@@ -3,10 +3,11 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"squarecloud/internal/api"
 	"strconv"
 	"strings"
 	"text/tabwriter"
+
+	"github.com/richaardev/squarecloud-cli/internal/api"
 
 	"github.com/spf13/cobra"
 )

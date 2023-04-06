@@ -2,8 +2,9 @@ package cmd
 
 import (
 	"os"
-	"squarecloud/internal/api"
-	"squarecloud/internal/util"
+
+	"github.com/richaardev/squarecloud-cli/internal/api"
+	"github.com/richaardev/squarecloud-cli/internal/util"
 
 	"github.com/spf13/cobra"
 )

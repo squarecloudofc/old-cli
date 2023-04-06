@@ -2,8 +2,9 @@ package cmd
 
 import (
 	"fmt"
-	"squarecloud/internal/appconfig"
-	"squarecloud/pkg/groupwriter"
+
+	"github.com/richaardev/squarecloud-cli/internal/appconfig"
+	"github.com/richaardev/squarecloud-cli/pkg/groupwriter"
 
 	"github.com/spf13/cobra"
 )
@@ -26,7 +27,6 @@ var checkCmd = &cobra.Command{
 			return
 		}
 		w.Println("\x1b[32m[•]\x1b[0m squarecloud.config")
-		
 
 		w.Println("\n\x1b[32m•\x1b[0m Is everythink okay!")
 	},

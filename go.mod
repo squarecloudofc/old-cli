@@ -1,4 +1,4 @@
-module squarecloud
+module github.com/richaardev/squarecloud-cli
 
 go 1.20
 

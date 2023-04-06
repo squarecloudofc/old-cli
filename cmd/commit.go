@@ -3,9 +3,10 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"squarecloud/internal/api"
-	"squarecloud/internal/appconfig"
-	"squarecloud/internal/util"
+
+	"github.com/richaardev/squarecloud-cli/internal/api"
+	"github.com/richaardev/squarecloud-cli/internal/appconfig"
+	"github.com/richaardev/squarecloud-cli/internal/util"
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/spf13/cobra"

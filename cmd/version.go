@@ -2,7 +2,8 @@ package cmd
 
 import (
 	"fmt"
-	"squarecloud/internal/build"
+
+	"github.com/richaardev/squarecloud-cli/internal/build"
 
 	"github.com/spf13/cobra"
 )

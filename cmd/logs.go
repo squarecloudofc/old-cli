@@ -3,7 +3,8 @@ package cmd
 import (
 	"os/exec"
 	"runtime"
-	"squarecloud/internal/api"
+
+	"github.com/richaardev/squarecloud-cli/internal/api"
 
 	"github.com/spf13/cobra"
 )

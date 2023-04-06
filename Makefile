@@ -1,6 +1,6 @@
 VERSION	?= $(shell git describe --abbrev=0 --tags)
 GOOS 	?= $(shell go env GOOS)
-LDFLAGS := -s -w -X squarecloud/internal/build.Version=$(VERSION)
+LDFLAGS := -s -w -X github.com/richaardev/squarecloud-cli/internal/build.Version=$(VERSION)
 OUTPUT 	:= ./bin/squarecloud
 MAIN 	:= ./cmd/squarecloud/squarecloud.go
 
