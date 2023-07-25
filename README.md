@@ -1,3 +1,1 @@
-CLI 
-  - REST MANAGER
-  
+# Square Cloud CLI
