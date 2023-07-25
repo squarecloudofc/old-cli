@@ -1,0 +1,24 @@
+{{ if .DisplayName }}
+DISPLAY_NAME={{ .DisplayName }}
+{{ end }}
+{{ if .Description }}
+DESCRIPTION={{ .Description }}
+{{ end }}
+{{ if .Main }}
+MAIN={{ .Main }}
+{{ end }}
+{{ if .Memory }}
+MEMORY={{ .Memory }}
+{{ end }}
+{{ if .Version }}
+VERSION={{ .Version }}
+{{ end }}
+{{ if .Subdomain }}
+SUBDOMAIN={{ .Subdomain }}
+{{ end }}
+{{ if .Avatar }}
+AVATAR={{ .Avatar }}
+{{ end }}
+{{ if .AutoRestart }}
+AUTORESTART={{ .AutoRestart }}
+{{ end }}
